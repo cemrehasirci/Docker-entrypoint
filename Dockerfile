@@ -3,8 +3,8 @@ ARG NODE_VERSION=18
 FROM node:${NODE_VERSION}
 
 #Labels
-LABEL maintrainer "cemre"
-LABEL description "Express + PostgreSQL + pgAdmin uygulaması imajı"
+LABEL maintrainer="cemre"
+LABEL description="Express + PostgreSQL + pgAdmin uygulaması imajı"
 
 WORKDIR /app
 
