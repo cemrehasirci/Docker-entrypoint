@@ -1,4 +1,6 @@
-FROM node:18
+#Node versiyonunu değiştirmek istersek diye ARG olarak yazdık
+ARG NODE_VERSION=18
+FROM node:${NODE_VERSION}
 
 #Labels
 LABEL maintrainer "cemre"
@@ -6,6 +8,7 @@ LABEL description "Express + PostgreSQL + pgAdmin uygulaması imajı"
 
 WORKDIR /app
 
+#COPY sayesinde eğer package*.json dosyaları değişmediyse tekrar install yapmaz
 COPY package*.json ./
 RUN npm install
 
