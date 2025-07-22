@@ -1,5 +1,9 @@
 FROM node:18
 
+#Labels
+LABEL maintrainer "cemre"
+LABEL description "Express + PostgreSQL + pgAdmin uygulaması imajı"
+
 WORKDIR /app
 
 COPY package*.json ./
