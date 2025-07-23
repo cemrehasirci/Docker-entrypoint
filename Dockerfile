@@ -6,13 +6,10 @@ FROM node:${NODE_VERSION}
 LABEL maintrainer="cemre"
 LABEL description="Express + PostgreSQL + pgAdmin uygulaması imajı"
 
-#Daha sonra node a çevir
-USER root
+USER node
 
 WORKDIR /app
 
-#COPY sayesinde eğer package*.json dosyaları değişmediyse tekrar install yapmaz
-COPY package*.json ./
 RUN npm install
 
 # Netcat kurulumu
@@ -30,3 +27,6 @@ CMD ["node", "index.js"]
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
   CMD curl --fail http://localhost:3000 || exit 1
+
+#Default 15 = SIGTERM
+STOPSIGNAL 15
