@@ -6,6 +6,9 @@ FROM node:${NODE_VERSION}
 LABEL maintrainer="cemre"
 LABEL description="Express + PostgreSQL + pgAdmin uygulaması imajı"
 
+#Daha sonra node a çevir
+USER root
+
 WORKDIR /app
 
 #COPY sayesinde eğer package*.json dosyaları değişmediyse tekrar install yapmaz
