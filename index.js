@@ -14,7 +14,22 @@ const pool = new Pool({
 
 app.get('/', async (req,res) => {
  const result = await pool.query('SELECT NOW()');
- res.send(`PostgreSQL zamanı: ${result.rows[0].now}`);
+ res.send(`
+  <html>
+    <head>
+      <title>PostgreSQL Bağlantı Testi</title>
+      <style>
+        body { font-family: Arial; background: #f0f0f0; padding: 50px; }
+        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px #ccc; max-width: 600px; margin: auto; text-align: center; }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <h1>✅ PostgreSQL Bağlantı Başarılı</h1>
+      </div>
+    </body>
+  </html>
+`);
 });
 
 app.listen(port, () => {

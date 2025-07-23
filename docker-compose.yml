@@ -10,14 +10,18 @@ services:
   depends_on:
    - db
   environment:
-   - NODE_ENV=development
+   NODE_ENV: development
+   DB_HOST: db
+   DB_USER: user1
+   DB_PASSWORD: 123456
+   DB_NAME: mydb
 
  db:
   image: postgres:15
   environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydb
+   POSTGRES_USER: user1
+   POSTGRES_PASSWORD: 123456
+   POSTGRES_DB: mydb
   ports:
    - "5432:5432"
   volumes:
